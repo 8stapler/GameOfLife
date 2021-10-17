@@ -3,7 +3,8 @@
 ###############################################################################
 * text=auto
 
-glad.c linguist-vendored=false
+glad.c -linguist-vendored
+
 
 ###############################################################################
 # Set default behavior for command prompt diff.
