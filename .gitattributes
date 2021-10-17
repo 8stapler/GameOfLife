@@ -5,6 +5,8 @@
 
 glad.c -linguist-vendored
 
+Libraries/** linguist-vendored
+
 
 ###############################################################################
 # Set default behavior for command prompt diff.
