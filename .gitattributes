@@ -3,7 +3,7 @@
 ###############################################################################
 * text=auto
 
-../glad.c -linguist-vendored
+#../glad.c -linguist-vendored
 
 Libraries/** linguist-vendored
 
