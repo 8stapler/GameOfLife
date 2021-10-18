@@ -17,6 +17,7 @@ const int HEIGHT = 40;
 using namespace std::this_thread; 
 using namespace std::chrono; 
 
+//make opengl draw a triangle out of the given vertices
 GLuint indices[] =
 {
 	0, 1, 2,
@@ -75,19 +76,19 @@ int main() {
 		std::copy(std::begin(board), std::end(board), std::begin(oboard));
 		for (int i = 0; i < WIDTH; i++) {
 			for (int j = 0; j < HEIGHT; j++) {
-				//define square size, x and y coordinates of the top left corner of the board, and the gap size between squares
+				//define square size, x and y coordinates of the top left corner of the board in window, and the gap size between squares
 				float sqSize = .045f;
 				float lCorner = -.90f;
 				float tCorner = .90f;
 				float gap = .005f;
-				//set position and color
+				//set position of square and color as white
 				GLfloat vertices[] = {
-					lCorner + i * sqSize, tCorner - j * sqSize, 0.0f,									0.0f, .29f, .506f,
+					lCorner + i * sqSize, tCorner - j * sqSize, 0.0f,					0.0f, .29f, .506f,
 					lCorner + sqSize + i * sqSize - gap, tCorner - sqSize - j * sqSize + gap, 0.0f,		0.0f, .29f, .506f,
-					lCorner + sqSize + i * sqSize - gap, tCorner - j * sqSize, 0.0f,					0.0f, .29f, .506f,
-					lCorner + i * sqSize, tCorner - sqSize - j * sqSize + gap, 0.0f,					0.0f, .29f, .506f
+					lCorner + sqSize + i * sqSize - gap, tCorner - j * sqSize, 0.0f,			0.0f, .29f, .506f,
+					lCorner + i * sqSize, tCorner - sqSize - j * sqSize + gap, 0.0f,			0.0f, .29f, .506f
 				};
-				// - i * .001f - j * .003f
+				//if cell is alive, make it yellow (also slight gradient)
 				if (board[i][j] == 1) {
 					for (int k = 0; k < 4; k++) {
 						vertices[3 + k * 6] = .988f - i * .001f - j * .003f;
